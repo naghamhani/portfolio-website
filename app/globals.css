@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ease: cubic-bezier(.2,.7,.2,1);
+  /* Light theme — RGB channels so Tailwind alpha modifiers work */
+  --paper: 251 245 241;   /* #FBF5F1 */
+  --paper-2: 244 233 226;  /* #F4E9E2 */
+  --paper-3: 236 219 210;  /* #ECDBD2 */
+  --ink: 42 23 38;         /* #2A1726 */
+  --ink-2: 94 67 88;       /* #5E4358 */
+  --ink-3: 142 116 136;    /* #8E7488 */
+  --ink-bg: 28 14 26;      /* #1C0E1A */
+  --ink-bg2: 42 23 38;     /* #2A1726 */
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+body { @apply bg-paper text-ink font-sans antialiased; line-height: 1.65; overflow-x: hidden; transition: background-color .4s var(--ease), color .4s var(--ease); }
+.font-arabic-root body, html[dir="rtl"] body { @apply font-arabic; }
+::selection { background: #C7295E; color: #fff; }
+:focus-visible { outline: 2.5px solid #C7295E; outline-offset: 3px; border-radius: 6px; }
+
+.grain { position: fixed; inset: 0; z-index: 60; pointer-events: none; opacity: .5; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E"); }
+
+#constellation { position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: .4; }
+
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+.reveal.in { opacity: 1; transform: none; }
+
+/* typewriter caret */
+.tw-caret { margin-inline-start: .04em; border-radius: 1px; animation: caretBlink 1.05s steps(1) infinite; }
+.tw-caret[data-done="1"] { animation: caretBlink 1.05s steps(1) infinite; }
+@keyframes caretBlink { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }
+
+/* Section-header pixel/bitmap label */
+.pixel-head { font-family: 'Silkscreen', 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: .06em; line-height: 1.5; }
+
+/* Diagonal-hatch dividers for technical sections (Ink 3 hatch) */
+.hatch { height: 30px; background-image: repeating-linear-gradient(135deg, rgb(var(--ink-3) / .55), rgb(var(--ink-3) / .55) 1.5px, transparent 1.5px, transparent 9px); }
+.slashes { font-family: 'JetBrains Mono', monospace; letter-spacing: .35em; color: rgb(var(--ink-3) / .7); user-select: none; }
+
+.marquee { -webkit-mask-image: linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent); mask-image: linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent); }
+.marquee-track { display: flex; width: max-content; animation: scrollx 48s linear infinite; }
+.marquee-track.rev { animation-direction: reverse; }
+.marquee-track.fast { animation-duration: 32s; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+@keyframes scrollx { to { transform: translateX(-50%); } }
+html[dir="rtl"] .marquee-track { animation-direction: reverse; }
+html[dir="rtl"] .marquee-track.rev { animation-direction: normal; }
+
+.masonry { column-gap: 16px; columns: 4; }
+.masonry > * { break-inside: avoid; margin-bottom: 16px; }
+@media (max-width: 980px){ .masonry { columns: 3; } }
+@media (max-width: 640px){ .masonry { columns: 2; } }
+
+/* preloader — always the deepest dark regardless of theme */
+#pre { position: fixed; inset: 0; z-index: 200; display: flex; align-items: center; justify-content: center; background: #1C0E1A; transition: opacity .6s var(--ease), visibility .6s; }
+#pre.done { opacity: 0; visibility: hidden; }
+#pre .mono { font-family: 'Fraunces', serif; font-weight: 600; font-size: clamp(120px,26vw,320px); color: #C7295E; line-height: 1; }
+#pre .cnt { position: absolute; bottom: 34px; inset-inline-start: 34px; color: #ECDBD2; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: .2em; }
+
+/* command palette */
+#cmdk-overlay { position: fixed; inset: 0; z-index: 120; display: flex; align-items: flex-start; justify-content: center; padding: 14vh 16px 0; background: rgba(12,6,11,.55); backdrop-filter: blur(6px); animation: cmdkIn .18s var(--ease); }
+@keyframes cmdkIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes cmdkPop { from { opacity: 0; transform: translateY(-10px) scale(.985); } to { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; scroll-behavior: auto !important; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
