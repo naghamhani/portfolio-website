@@ -36,10 +36,10 @@ export default function Nav() {
 
   return (
     <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled ? "bg-paper/85 py-5 shadow-[0_1px_0_rgba(42,23,38,.14)] backdrop-blur-md" : "py-8"}`}>
-      <div className="mx-auto flex max-w-container items-center justify-between gap-6 px-5 sm:px-8 lg:px-[72px]">
-        <a href="#top" className="flex items-center gap-4 font-semibold" aria-label="Nagham Alhoubani — home">
-          <span className="grid h-12 w-12 place-items-center rounded-full bg-terracotta pb-0.5 font-display text-2xl text-white">ن</span>
-          <span className="whitespace-nowrap text-[19px]">Nagham&nbsp;Alhoubani</span>
+      <div className="mx-auto flex max-w-container items-center justify-between gap-3 px-5 sm:gap-6 sm:px-8 lg:px-[72px]">
+        <a href="#top" className="flex min-w-0 items-center gap-2.5 font-semibold sm:gap-4" aria-label="Nagham Alhoubani — home">
+          <span className="grid h-9 w-9 flex-none place-items-center rounded-full bg-terracotta pb-0.5 font-display text-lg text-white sm:h-12 sm:w-12 sm:text-2xl">ن</span>
+          <span className="min-w-0 truncate text-[15px] sm:whitespace-nowrap sm:text-[19px]">Nagham&nbsp;Alhoubani</span>
         </a>
         <nav className="hidden items-center gap-7 text-[16px] font-medium lg:flex" aria-label="Primary">
           {NAV.map((id) => (
@@ -48,7 +48,7 @@ export default function Nav() {
         </nav>
         <div className="flex items-center gap-3">
           <a href="#contact" className="hidden rounded-full border-[1.5px] border-ink px-5 py-2.5 text-[16px] font-semibold transition hover:bg-ink hover:text-paper sm:inline-block">{t.nav.cta}</a>
-          <button className="flex flex-col gap-1.5 p-2 lg:hidden" aria-label="Menu" aria-expanded={open} onClick={() => setOpen((o) => !o)}>
+          <button className="flex min-h-11 min-w-11 flex-col items-center justify-center gap-1.5 p-2 lg:hidden" aria-label="Menu" aria-expanded={open} onClick={() => setOpen((o) => !o)}>
             <span className={`block h-0.5 w-6 bg-ink transition ${open ? "translate-y-2 rotate-45" : ""}`} />
             <span className={`block h-0.5 w-6 bg-ink transition ${open ? "-translate-y-0 -rotate-45" : ""}`} />
           </button>
