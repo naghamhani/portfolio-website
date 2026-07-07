@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
-import { useI18n } from "../i18n.jsx";
-import { NAV } from "../data.js";
+import { useI18n } from "../i18n";
+import { NAV } from "../data";
 
 export default function Nav() {
   const { t } = useI18n();

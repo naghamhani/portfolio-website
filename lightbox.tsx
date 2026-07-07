@@ -1,7 +1,7 @@
 "use client";
 import { createContext, useContext, useState, useEffect, useCallback } from "react";
-import { useI18n } from "./i18n.jsx";
-import { asset } from "./asset.js";
+import { useI18n } from "./i18n";
+import { asset } from "./asset";
 
 const Ctx = createContext(null);
 export const useLightbox = () => useContext(Ctx);

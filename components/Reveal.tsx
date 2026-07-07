@@ -1,5 +1,5 @@
 "use client";
-import { useReveal } from "../useReveal.js";
+import { useReveal } from "../useReveal";
 export default function Reveal({ as: Tag = "div", delay = 0, className = "", children, ...rest }) {
   const [ref, shown] = useReveal();
   return (

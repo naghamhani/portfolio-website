@@ -1,5 +1,6 @@
 "use client";
-import { createContext, useContext, useEffect, useState, useCallback } from "react";
+import { createContext, useContext, useEffect, useCallback, type ReactNode } from "react";
+import type { Lang } from "./types";
 
 export const STR = {
   en: {
@@ -112,10 +113,20 @@ export const STR = {
   },
 };
 
-const I18nCtx = createContext(null);
+export type Strings = typeof STR.en;
 
-export function I18nProvider({ children }) {
-  const lang = "en";
+export interface I18nContextValue {
+  lang: Lang;
+  dir: "ltr" | "rtl";
+  t: Strings;
+  toggle: () => void;
+  isAr: boolean;
+}
+
+const I18nCtx = createContext<I18nContextValue | null>(null);
+
+export function I18nProvider({ children }: { children: ReactNode }) {
+  const lang: Lang = "en";
   const dir = "ltr";
   useEffect(() => {
     document.documentElement.lang = "en";
@@ -128,4 +139,8 @@ export function I18nProvider({ children }) {
   return <I18nCtx.Provider value={{ lang, dir, t, toggle, isAr: false }}>{children}</I18nCtx.Provider>;
 }
 
-export const useI18n = () => useContext(I18nCtx);
+export function useI18n(): I18nContextValue {
+  const ctx = useContext(I18nCtx);
+  if (!ctx) throw new Error("useI18n must be used within I18nProvider");
+  return ctx;
+}

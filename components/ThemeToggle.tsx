@@ -1,5 +1,5 @@
 "use client";
-import { useTheme } from "../theme.jsx";
+import { useTheme } from "../theme";
 
 export default function ThemeToggle({ className = "" }) {
   const { isDark, toggle } = useTheme();

@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useI18n } from "../i18n.jsx";
+import { useI18n } from "../i18n";
 
 const LINKS = {
   email: "mailto:naghamhani20@gmail.com",

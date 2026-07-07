@@ -1,6 +1,6 @@
 "use client";
-import { useI18n } from "../i18n.jsx";
-import CountUp from "./CountUp.jsx";
+import { useI18n } from "../i18n";
+import CountUp from "./CountUp";
 export default function Stats() {
   const { t } = useI18n();
   return (

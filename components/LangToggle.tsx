@@ -1,5 +1,5 @@
 "use client";
-import { useI18n } from "../i18n.jsx";
+import { useI18n } from "../i18n";
 export default function LangToggle({ className = "" }) {
   const { t, toggle, isAr } = useI18n();
   return (

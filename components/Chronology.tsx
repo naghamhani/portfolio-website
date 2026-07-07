@@ -1,8 +1,8 @@
 "use client";
-import { useI18n } from "../i18n.jsx";
-import { experience } from "../lib/data.js";
-import SectionHead from "./SectionHead.jsx";
-import Reveal from "./Reveal.jsx";
+import { useI18n } from "../i18n";
+import { experience } from "../lib/data";
+import SectionHead from "./SectionHead";
+import Reveal from "./Reveal";
 
 const EDUCATION = [
   {

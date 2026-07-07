@@ -1,6 +1,6 @@
 "use client";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { useI18n } from "../i18n.jsx";
+import { useI18n } from "../i18n";
 
 // Average adult reading pace ≈ 210 wpm ≈ 3.5 words per second.
 const WORDS_PER_SEC = 3.5;

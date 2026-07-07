@@ -1,8 +1,8 @@
 "use client";
-import { useI18n } from "../i18n.jsx";
-import { asset } from "../asset.js";
-import Reveal from "./Reveal.jsx";
-import Typewriter from "./Typewriter.jsx";
+import { useI18n } from "../i18n";
+import { asset } from "../asset";
+import Reveal from "./Reveal";
+import Typewriter from "./Typewriter";
 import gallery from "../data/gallery.json";
 
 const strip = gallery.filter((g) => ["award", "experience"].includes(g.cat)).slice(0, 14);

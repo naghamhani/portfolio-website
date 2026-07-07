@@ -1,9 +1,10 @@
 // All copy is bilingual: { en, ar }. Images live in /public/img and /public/certs.
-import { feminismEssay } from "./data/writings-content.js";
+import { feminismEssay } from "./data/writings-content";
+import type { TimelineItem, Project, Credential, Writing, LightboxItem } from "./types";
 
-export const NAV = ["hero", "manifesto", "about", "skills", "work", "experience", "gallery", "credentials", "writing", "contact"];
+export const NAV: string[] = ["hero", "manifesto", "about", "skills", "work", "experience", "gallery", "credentials", "writing", "contact"];
 
-export const timeline = [
+export const timeline: TimelineItem[] = [
   { date: { en: "Oct 2021", ar: "أكتوبر ٢٠٢١" }, img: "img/me-heforshe-workshop.jpg",
     h: { en: "HeForShe (UN Women) — Content Creator", ar: "HeForShe (هيئة الأمم للمرأة) — صانعة محتوى" },
     p: { en: "Joined the official Arabic HeForShe team and completed the UN “I Know Gender” course (16 modules). Began publishing research-rich articles on gender equality and human rights.", ar: "انضممتُ إلى فريق HeForShe العربي الرسمي وأكملتُ دورة الأمم المتحدة «أعرف النوع الاجتماعي» (١٦ وحدة)، وبدأتُ نشر مقالات بحثية عن المساواة وحقوق الإنسان." } },
@@ -33,9 +34,9 @@ export const timeline = [
     p: { en: "Took First Place at the Najahna entrepreneurial-health competition for a reproductive-healthcare solution — my third national win in three years, and the clearest proof yet that technology for women’s health is the work I’m here to do.", ar: "حصلتُ على المركز الأول في مسابقة «نجاحنا» لريادة الصحة عن حلٍّ للصحة الإنجابية — ثالث فوز وطني خلال ثلاث سنوات، وأوضح دليل على أن التقنية لأجل صحة المرأة هي رسالتي." } },
 ];
 
-export const featured = { img: "img/hakeem-me-presenting.jpg" };
+export const featured: { img: string } = { img: "img/hakeem-me-presenting.jpg" };
 
-export const projects = [
+export const projects: Project[] = [
   { win: true, year: "2026", cat: { en: "1st Place 🏆", ar: "المركز الأول 🏆" }, h: { en: "Reproductive Healthcare Solution", ar: "حلّ للصحة الإنجابية" }, p: { en: "First-place winner at the Najahna entrepreneurial-health competition — a reproductive-healthcare solution judged best in the country.", ar: "الفائز الأول في مسابقة «نجاحنا» — حلّ للصحة الإنجابية اختير الأفضل على مستوى الوطن." }, s: "healthcare · innovation · pitching" },
   { year: "2024", cat: { en: "3rd Place 🥉", ar: "المركز الثالث 🥉" }, h: { en: "The Nur Project — Hakeem Competition", ar: "مشروع نور — مسابقة حكيم" }, p: { en: "3rd place (solo) at the 9th Hakeem Academy Annual Competition by Electronic Health Solutions (EHS) — an independently built machine-learning concept predicting postpartum depression to strengthen maternal support and data research.", ar: "المركز الثالث (فردي) في مسابقة أكاديمية حكيم التاسعة من Electronic Health Solutions — مفهوم تعلّم آلة بُني منفردًا للتنبؤ باكتئاب ما بعد الولادة لتعزيز دعم الأمهات والبحث." }, s: "machine learning · health prediction · python" },
   { year: "2024", cat: { en: "2nd Place 🥈", ar: "المركز الثاني 🥈" }, h: { en: "Generative AI Hackathon", ar: "هاكاثون الذكاء الاصطناعي التوليدي" }, p: { en: "2nd place in a high-intensity generative-AI hackathon hosted by Tahaluf Al Emarat Technical Solutions at the InterContinental Amman.", ar: "المركز الثاني في هاكاثون مكثّف للذكاء الاصطناعي التوليدي من تحالف الإمارات للحلول التقنية في فندق إنتركونتيننتال عمّان." }, s: "generative ai · llms · team" },
@@ -50,9 +51,9 @@ export const projects = [
   { year: "2025–", cat: { en: "Fellowship", ar: "زمالة" }, h: { en: "9XAI Fellowship", ar: "زمالة 9XAI" }, p: { en: "Currently building real-world, applied AI as a 9XAI Fellow — taking models from notebook experiments to things people can actually use.", ar: "أبني حاليًا ذكاءً اصطناعيًا تطبيقيًا كزميلة في 9XAI — أنقل النماذج من تجارب المفكرات إلى منتجات يستخدمها الناس فعلًا." }, s: "applied ai · product" },
 ];
 
-const dc = (n, c) => ({ src: `certs/datacamp/${n}`, cap: { en: c, ar: c } });
+const dc = (n: string, c: string): LightboxItem => ({ src: `certs/datacamp/${n}`, cap: { en: c, ar: c } });
 // `sort` = YYYYMM for strict newest→oldest ordering; `date` = year shown on the badge.
-export const credentials = [
+export const credentials: Credential[] = [
   { date: 2025, sort: 202506, cat: "impact", img: "certs/qrne.jpg", title: { en: "QRNE Entrepreneurship", ar: "ريادة الأعمال QRNE" }, issuer: { en: "Queen Rania Centre · Attendance · 6 May – 3 June 2025", ar: "مركز الملكة رانيا · حضور · ٦ مايو – ٣ يونيو ٢٠٢٥" } },
   { date: 2025, sort: 202505, cat: "award", img: "certs/excellence-2.jpg", title: { en: "HTU Excellence Award (II)", ar: "جائزة التميّز من الجامعة (٢)" }, issuer: { en: "Al Hussein Technical University · 2025", ar: "جامعة الحسين التقنية · ٢٠٢٥" } },
   { date: 2025, sort: 202504, cat: "award", img: "certs/ahli-fintech.jpg", title: { en: "Ahli Fintech Hackathon", ar: "هاكاثون الأهلي فينتك" }, issuer: { en: "Ahli Fintech · April 2025", ar: "الأهلي فينتك · أبريل ٢٠٢٥" } },
@@ -102,8 +103,8 @@ export const credentials = [
   { date: 2025, sort: 202506, cat: "award", doc: "pdf", href: "certs/TOEFL_Score_Report_3145188.pdf", title: { en: "TOEFL Score Report", ar: "نتيجة اختبار التوفل" }, issuer: { en: "ETS TOEFL iBT · 2025", ar: "ETS TOEFL iBT · ٢٠٢٥" } },
 ];
 
-export const writings = [
+export const writings: Writing[] = [
   { date: 2023, sort: 202301, doc: "docx", href: "writings/feminism.docx", title: { en: "On Feminism", ar: "عن النسوية" }, blurb: { en: "A personal essay reflecting on feminism.", ar: "مقالة شخصية تتأمل في النسوية." }, body: feminismEssay },
 ];
 
-export const TECH = ["Python","R","SQL","pandas","NumPy","scikit-learn","Power BI","Tableau","Hadoop","Docker","Java","C / C++","Jupyter","ggplot2","Git","Excel","LLM concepts","Neural Networks"];
+export const TECH: string[] = ["Python","R","SQL","pandas","NumPy","scikit-learn","Power BI","Tableau","Hadoop","Docker","Java","C / C++","Jupyter","ggplot2","Git","Excel","LLM concepts","Neural Networks"];

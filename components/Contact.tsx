@@ -1,7 +1,7 @@
 "use client";
-import { useI18n } from "../i18n.jsx";
-import SectionHead from "./SectionHead.jsx";
-import Reveal from "./Reveal.jsx";
+import { useI18n } from "../i18n";
+import SectionHead from "./SectionHead";
+import Reveal from "./Reveal";
 export default function Contact() {
   const { t, isAr } = useI18n();
   const [pre, em] = t.contact.title;

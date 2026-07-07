@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
-import { useI18n } from "../i18n.jsx";
-import { projects } from "../data.js";
-import SectionHead from "./SectionHead.jsx";
-import Reveal from "./Reveal.jsx";
+import { useI18n } from "../i18n";
+import { projects } from "../data";
+import SectionHead from "./SectionHead";
+import Reveal from "./Reveal";
 
 export default function Work() {
   const { t, lang } = useI18n();

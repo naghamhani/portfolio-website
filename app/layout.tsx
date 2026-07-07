@@ -1,5 +1,5 @@
 import "./globals.css";
-import Providers from "../components/Providers.jsx";
+import Providers from "../components/Providers";
 
 export const metadata = {
   title: "Nagham Alhoubani — Data Scientist & AI Engineer",

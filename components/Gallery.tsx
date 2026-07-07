@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
-import { useI18n } from "../i18n.jsx";
-import { asset } from "../asset.js";
-import { useLightbox } from "../lightbox.jsx";
-import SectionHead from "./SectionHead.jsx";
-import Reveal from "./Reveal.jsx";
+import { useI18n } from "../i18n";
+import { asset } from "../asset";
+import { useLightbox } from "../lightbox";
+import SectionHead from "./SectionHead";
+import Reveal from "./Reveal";
 import gallery from "../data/gallery.json";
 
 const CATS = ["all", "award", "experience", "impact"];

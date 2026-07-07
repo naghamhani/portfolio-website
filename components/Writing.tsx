@@ -1,10 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
-import { useI18n } from "../i18n.jsx";
-import { writings } from "../data.js";
-import { asset } from "../asset.js";
-import SectionHead from "./SectionHead.jsx";
-import Reveal from "./Reveal.jsx";
+import { useI18n } from "../i18n";
+import { writings } from "../data";
+import { asset } from "../asset";
+import SectionHead from "./SectionHead";
+import Reveal from "./Reveal";
 
 function ReadModal({ item, onClose }) {
   const { t, lang } = useI18n();

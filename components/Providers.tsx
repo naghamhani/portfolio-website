@@ -1,6 +1,6 @@
 "use client";
-import { I18nProvider } from "../i18n.jsx";
-import { LightboxProvider } from "../lightbox.jsx";
+import { I18nProvider } from "../i18n";
+import { LightboxProvider } from "../lightbox";
 
 export default function Providers({ children }) {
   return (

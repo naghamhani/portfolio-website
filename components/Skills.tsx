@@ -1,10 +1,10 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { useI18n } from "../i18n.jsx";
-import { TECH } from "../data.js";
-import { skills, pillars } from "../lib/data.js";
-import SectionHead from "./SectionHead.jsx";
-import Reveal from "./Reveal.jsx";
+import { useI18n } from "../i18n";
+import { TECH } from "../data";
+import { skills, pillars } from "../lib/data";
+import SectionHead from "./SectionHead";
+import Reveal from "./Reveal";
 
 // Two marquee rows split from the combined tech list.
 const ALL = Array.from(new Set([...TECH, ...skills.map((s) => s.replace("*", ""))]));

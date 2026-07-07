@@ -1,8 +1,8 @@
 "use client";
-import { useI18n } from "../i18n.jsx";
-import { TECH } from "../data.js";
-import SectionHead from "./SectionHead.jsx";
-import Reveal from "./Reveal.jsx";
+import { useI18n } from "../i18n";
+import { TECH } from "../data";
+import SectionHead from "./SectionHead";
+import Reveal from "./Reveal";
 export default function Focus() {
   const { t } = useI18n();
   return (

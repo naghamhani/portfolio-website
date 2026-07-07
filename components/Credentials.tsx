@@ -1,11 +1,11 @@
 "use client";
 import { useState } from "react";
-import { useI18n } from "../i18n.jsx";
-import { credentials } from "../data.js";
-import { asset } from "../asset.js";
-import { useLightbox } from "../lightbox.jsx";
-import SectionHead from "./SectionHead.jsx";
-import Reveal from "./Reveal.jsx";
+import { useI18n } from "../i18n";
+import { credentials } from "../data";
+import { asset } from "../asset";
+import { useLightbox } from "../lightbox";
+import SectionHead from "./SectionHead";
+import Reveal from "./Reveal";
 
 const CATS = ["all", "data", "award", "impact"];
 
