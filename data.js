@@ -1,4 +1,6 @@
 // All copy is bilingual: { en, ar }. Images live in /public/img and /public/certs.
+import { feminismEssay } from "./data/writings-content.js";
+
 export const NAV = ["hero", "manifesto", "about", "skills", "work", "experience", "gallery", "credentials", "writing", "contact"];
 
 export const timeline = [
@@ -101,7 +103,7 @@ export const credentials = [
 ];
 
 export const writings = [
-  { date: 2023, sort: 202301, doc: "docx", href: "writings/feminism.docx", title: { en: "On Feminism", ar: "عن النسوية" }, blurb: { en: "A personal essay reflecting on feminism.", ar: "مقالة شخصية تتأمل في النسوية." } },
+  { date: 2023, sort: 202301, doc: "docx", href: "writings/feminism.docx", title: { en: "On Feminism", ar: "عن النسوية" }, blurb: { en: "A personal essay reflecting on feminism.", ar: "مقالة شخصية تتأمل في النسوية." }, body: feminismEssay },
 ];
 
 export const TECH = ["Python","R","SQL","pandas","NumPy","scikit-learn","Power BI","Tableau","Hadoop","Docker","Java","C / C++","Jupyter","ggplot2","Git","Excel","LLM concepts","Neural Networks"];
