@@ -10,11 +10,15 @@ import type { Writing as WritingItem } from "../types";
 function ReadModal({ item, onClose }: { item: WritingItem | null; onClose: () => void }) {
   const { t, lang } = useI18n();
   useEffect(() => {
+    // Only lock scroll while a piece is actually open. This effect runs even
+    // when item is null (hooks must precede the early return below), so guard
+    // it — otherwise the body stays overflow:hidden and the page can't scroll.
+    if (!item) return;
     document.body.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
     window.addEventListener("keydown", onKey);
     return () => { document.body.style.overflow = ""; window.removeEventListener("keydown", onKey); };
-  }, [onClose]);
+  }, [item, onClose]);
   if (!item) return null;
   return (
     <div className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-[rgba(26,12,23,.93)] p-[4vw] backdrop-blur-md" onClick={onClose}>
