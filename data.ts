@@ -1,5 +1,5 @@
 // All copy is bilingual: { en, ar }. Images live in /public/img and /public/certs.
-import { feminismEssay } from "./data/writings-content";
+import { feminismEssay, jordanEssay } from "./data/writings-content";
 import type { TimelineItem, Project, Credential, Writing, LightboxItem } from "./types";
 
 export const NAV: string[] = ["hero", "manifesto", "about", "skills", "work", "experience", "gallery", "credentials", "writing", "contact"];
@@ -105,6 +105,7 @@ export const credentials: Credential[] = [
 
 export const writings: Writing[] = [
   { date: 2023, sort: 202301, doc: "docx", href: "writings/feminism.docx", title: { en: "On Feminism", ar: "عن النسوية" }, blurb: { en: "A personal essay reflecting on feminism.", ar: "مقالة شخصية تتأمل في النسوية." }, body: feminismEssay },
+  { date: 2021, sort: 202111, doc: "docx", href: "writings/jordan-paper.docx", title: { en: "On Jordan's Pandemic Response", ar: "عن استجابة الأردن لجائحة كورونا" }, blurb: { en: "A discursive essay on how effectively Jordan handled COVID-19 compared to the rest of the world.", ar: "مقالة نقاشية تقيّم مدى فعالية تعامل الأردن مع جائحة كورونا مقارنة بالعالم." }, body: jordanEssay },
 ];
 
 export const TECH: string[] = ["Python","R","SQL","pandas","NumPy","scikit-learn","Power BI","Tableau","Hadoop","Docker","Java","C / C++","Jupyter","ggplot2","Git","Excel","LLM concepts","Neural Networks"];
