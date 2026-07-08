@@ -1,11 +1,13 @@
 "use client";
 import { useI18n } from "../i18n";
 import { asset } from "../asset";
+import { useLightbox } from "../lightbox";
 import Reveal from "./Reveal";
 import Typewriter from "./Typewriter";
 import gallery from "../data/gallery.json";
 
 const strip = gallery.filter((g) => ["award", "experience"].includes(g.cat)).slice(0, 14);
+const stripItems = strip.map((g) => ({ src: g.src, cap: { en: g.en, ar: g.ar }, video: g.video, date: g.date }));
 
 function fmtDate(d: string) {
   if (!d) return "";
@@ -16,6 +18,7 @@ function fmtDate(d: string) {
 
 export default function Hero() {
   const { t, lang } = useI18n();
+  const { open } = useLightbox();
   const [pre, em, post] = t.hero.title;
   return (
     <section id="hero" className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden pt-28">
@@ -58,8 +61,9 @@ export default function Hero() {
         <div className="marquee overflow-hidden">
           <div className="marquee-track gap-[18px]">
             {[...strip, ...strip].map((g, i) => (
-              <figure key={i} className="relative aspect-[4/3] w-[clamp(190px,22vw,260px)] flex-none overflow-hidden rounded-2xl shadow-[0_14px_34px_-22px_rgba(42,23,38,.6)]">
-                <img src={asset(g.src)} alt={g[lang]} loading={i < 6 ? "eager" : "lazy"} className="h-full w-full object-cover" />
+              <figure key={i} className="group relative aspect-[4/3] w-[clamp(190px,22vw,260px)] flex-none cursor-pointer overflow-hidden rounded-2xl shadow-[0_14px_34px_-22px_rgba(42,23,38,.6)]" onClick={() => open(stripItems, i % strip.length)}>
+                <img src={asset(g.src)} alt={g[lang]} loading={i < 6 ? "eager" : "lazy"} className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]" />
+                <span className="pointer-events-none absolute inset-0 bg-ink-bg/0 transition duration-500 group-hover:bg-ink-bg/15" />
                 <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink-bg/80 to-transparent px-3.5 pb-2.5 pt-5 font-mono text-[11px] text-white">
                   {g[lang]}{g.date ? <span className="ml-1.5 opacity-70">· {fmtDate(g.date)}</span> : null}
                 </figcaption>
