@@ -27,7 +27,7 @@ export default function Gallery() {
   const items = shown.map((g) => ({ src: g.src, cap: { en: g.en, ar: g.ar }, video: g.video, date: g.date }));
   return (
     <section id="gallery" className="mx-auto max-w-container px-5 py-20 sm:px-8 lg:px-[72px] lg:py-32">
-      <SectionHead index={t.gallery.index} kicker={t.gallery.kicker} meta="56 photos since 2021" />
+      <SectionHead index={t.gallery.index} kicker={t.gallery.kicker} meta="55 photos since 2021" />
       <Reveal as="h2" className="font-display text-[clamp(30px,5vw,62px)] font-bold leading-[1.02] tracking-[-.025em]">{pre}<em className="italic text-terracotta">{em}</em></Reveal>
       <Reveal as="p" delay={0.08} className="mt-4 max-w-[60ch] text-[clamp(15px,1.3vw,18px)] text-ink-2">{t.gallery.intro}</Reveal>
       <div className="my-8 flex flex-wrap items-center gap-2.5">
